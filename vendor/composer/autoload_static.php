@@ -11,9 +11,9 @@ class ComposerStaticInit138b50bc9532adbedaa35ae3f6f965d3
         array (
             'PHPMailer\\PHPMailer\\' => 20,
         ),
-        'H' => 
+        'F' => 
         array (
-            'Hcode\\' => 6,
+            'Fincorp\\' => 8,
         ),
     );
 
@@ -22,9 +22,9 @@ class ComposerStaticInit138b50bc9532adbedaa35ae3f6f965d3
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
-        'Hcode\\' => 
+        'Fincorp\\' => 
         array (
-            0 => __DIR__ . '/..' . '/hcodebr/php-classes/src',
+            0 => __DIR__ . '/..' . '/fincorp/php-classes/src',
         ),
     );
 
