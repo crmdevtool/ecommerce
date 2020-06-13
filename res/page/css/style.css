@@ -31,7 +31,7 @@ body { font-family:Arial, Helvetica, sans-serif; }
 
 
 .header-area {
-    background: none repeat scroll 0 0 #f4f4f4;
+    background: none repeat scroll 0 0 #383838;
 }
 .header-area a {
     color: #888;
@@ -73,7 +73,7 @@ body { font-family:Arial, Helvetica, sans-serif; }
     text-align: center;
 }
 
-.mainmenu-area {background: none repeat scroll 0 0 #fbfbfb;
+.mainmenu-area {background: none repeat scroll 0 0 #4b4b4b;
 font-family: "Roboto Condensed",sans-serif;
 text-transform: uppercase;
 width: 100%;
@@ -142,7 +142,7 @@ z-index: 999;}
 
 
 .mainmenu-area ul.navbar-nav li a {
-    color: #6e6a6a;
+    color: #ffffff;
     font-size: 14px;
     padding: 20px;
 }
@@ -337,7 +337,7 @@ z-index: 999;}
 }
 
 .promo-area {
-  background:#fbfbfb;
+  background:#222;
   color: #fff;
   padding: 40px 0 40px;
 }
@@ -433,7 +433,7 @@ z-index: 999;}
 
 
 .single-product h2 a {
-    color: #222;
+    color: #fff;
 }
 .single-product p {
     color: #e67e22;
@@ -709,6 +709,7 @@ width: 10px;
 }
 input[type="text"], input[type="password"], input[type="email"], textarea {
     border: 1px solid #ddd;
+    color: #222;
     padding: 10px;
 }
 input[type="submit"], button[type=submit] {
@@ -718,7 +719,7 @@ input[type="submit"], button[type=submit] {
     padding: 11px 20px;
     text-transform: uppercase;
 }
-input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
+input[type="submit"]:hover, button[type=submit]:hover {background-color: #ac5a12}
 .single-sidebar input[type="text"] {
     margin-bottom: 10px;
     width: 100%;
@@ -806,6 +807,7 @@ input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
 }
 .quantity input[type="number"] {
     border: 1px solid #e67e22;
+    color: #222;
     padding: 5px;
     width: 50px;
 }
@@ -894,7 +896,7 @@ text-transform: uppercase;}
 
 
 table.shop_table {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #fff;
     border-right: 1px solid #ddd;
     margin-bottom: 50px;
     width: 100%;
@@ -906,7 +908,7 @@ table.shop_table th, table.shop_table td {
     text-align: center;
 }
 table.shop_table th {
-    background: none repeat scroll 0 0 #f4f4f4;
+    background: none repeat scroll 0 0 #222;
     font-size: 15px;
     text-transform: uppercase;
 }
@@ -980,7 +982,7 @@ div.cart-collaterals ul.products li.product {
     padding: 10px;
 }
 .cart_totals table th {
-    background: none repeat scroll 0 0 #f4f4f4;
+    background: none repeat scroll 0 0 #222;
 }
 .onsale {
 }
@@ -1081,7 +1083,7 @@ table.shop_table td.product-remove a {
 
 
 table.shop_table td.product-remove a:hover {color: #fff;background: red;text-decoration: none}
-table.shop_table td.product-name a{color: #222;}
+table.shop_table td.product-name a{color: #fff;}
 table.shop_table td.product-name a:hover {color: #e67e22;text-decoration: none}
 div.quantity input.plus:hover, div.quantity input.minus:hover {background-color: #222}
 div.cart-collaterals ul.products li.product a:hover h3 {color: #e67e22}
@@ -1097,7 +1099,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 
 
 #login-form-wrap, #coupon-collapse-wrap {
-    background: none repeat scroll 0 0 #fff;
+    background: none repeat scroll 0 0 #222;
     margin-bottom: 30px;
     padding: 25px;
 }
@@ -1115,7 +1117,7 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 
 
 #register-form-wrap, #coupon-collapse-wrap {
-    background: none repeat scroll 0 0 #f4f4f4;
+    background: none repeat scroll 0 0 #222;
     margin-bottom: 30px;
     padding: 25px;
 }
