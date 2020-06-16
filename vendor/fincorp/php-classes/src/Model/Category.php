@@ -6,6 +6,7 @@ use \Fincorp\DB\Sql;
 use \Fincorp\Model;
 use \Fincorp\Mailer;
 
+//Classe das categorias
 class Category extends Model {
 
 	public static function listAll()
