@@ -694,10 +694,6 @@ width: 10px;
   padding: 80px 0 130px;
 }
 
-
-
-
-
 .sidebar-title {
     color: #fead53;
     font-size: 25px;
@@ -841,7 +837,7 @@ form.cart {
     color: #fff;
 }
 .product-tab li a {
-    color: #222;
+    color: #fff;
     display: block;
     font-size: 16px;
     padding: 10px 30px;
