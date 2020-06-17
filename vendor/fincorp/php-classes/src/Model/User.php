@@ -8,145 +8,195 @@ use \Fincorp\Mailer;
 
 class User extends Model {
 
-  const SESSION = "User";
-	const SECRET = "chavecode_Secret";
-	const SECRET_IV = "chavecode_Secret_IV";
+	const SESSION = "User";
+	const SECRET = "HcodePhp7_Secret";
+	const SECRET_IV = "HcodePhp7_Secret_IV";
 	const ERROR = "UserError";
 	const ERROR_REGISTER = "UserErrorRegister";
 	const SUCCESS = "UserSucesss";
 
-  public static function login($login, $password)
-  {
+	public static function getFromSession()
+	{
 
-    $sql = new Sql();
+		$user = new User();
 
-    $results = $sql->select("SELECT * FROM tb_users WHERE deslogin = :LOGIN", array(
-      ":LOGIN"=>$login
-    ));
+		if (isset($_SESSION[User::SESSION]) && (int)$_SESSION[User::SESSION]['iduser'] > 0) {
 
-    if (count($results) === 0)
-    {
-      throw new \Exception("Usuário inexistente ou senha inválida!");
-    }
+			$user->setData($_SESSION[User::SESSION]);
 
-    $data = $results[0];
+		}
 
-    if (password_verify($password, $data["despassword"]) === true)
-    {
+		return $user;
 
-      $user = new User();
+	}
 
-      $user->setData($data);
+	public static function checkLogin($inadmin = true)
+	{
 
-      $_SESSION[User::SESSION] = $user->getValues();
+		if (
+			!isset($_SESSION[User::SESSION])
+			||
+			!$_SESSION[User::SESSION]
+			||
+			!(int)$_SESSION[User::SESSION]["iduser"] > 0
+		) {
+			//Não está logado
+			return false;
 
-      return $user;
+		} else {
 
-    } else {
-      throw new \Exception("Usuário inexistente ou senha inválida!");
-    }
+			if ($inadmin === true && (bool)$_SESSION[User::SESSION]['inadmin'] === true) {
 
-  }
+				return true;
 
-  public static function verifyLogin($inadmin = true)
-  {
+			} else if ($inadmin === false) {
 
-    if (
-        !isset($_SESSION[User::SESSION])
-        ||
-        !$_SESSION[User::SESSION]
-        ||
-        !(int)$_SESSION[User::SESSION]["iduser"] > 0
-        ||
-        (bool)$_SESSION[User::SESSION]["inadmin"] !== $inadmin
-    ) {
-      
-      header("Location: /admin/login");
-      exit;
+				return true;
 
-    }
+			} else {
 
-  }
+				return false;
 
-  public static function logout()
-  {
+			}
 
-    $_SESSION[User::SESSION] = NULL;
+		}
 
-  }
+	}
 
-  public static function listAll()
-  {
+	public static function login($login, $password)
+	{
 
-    $sql = new Sql();
+		$sql = new Sql();
 
-    return $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson");
+		$results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b ON a.idperson = b.idperson WHERE a.deslogin = :LOGIN", array(
+			":LOGIN"=>$login
+		)); 
 
-  }
+		if (count($results) === 0)
+		{
+			throw new \Exception("Usuário inexistente ou senha inválida.");
+		}
 
-  public function save()
-  {
+		$data = $results[0];
 
-    $sql = new Sql();
-  
-    $results = $sql->select("CALL sp_users_save(:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
-      "desperson"=>$this->getdesperson(),
-      "deslogin"=>$this->getdeslogin(),
-      "despassword"=>$this->getdespassword(),
-      "desemail"=>$this->getdesemail(),
-      "nrphone"=>$this->getnrphone(),
-      "inadmin"=>$this->getinadmin()
-    ));
+		if (password_verify($password, $data["despassword"]) === true)
+		{
 
-    $this->setData($results[0]);
+			$user = new User();
 
-  }
+			$data['desperson'] = utf8_encode($data['desperson']);
 
-  public function get($iduser)
-  {
-    
-    $sql = new Sql();
-    
-    $results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.iduser = :iduser;", array(
-    ":iduser"=>$iduser
-    ));
-    
-    $data = $results[0];
-    
-    $this->setData($data);
-    
-    }
+			$user->setData($data);
 
-  public function update()
-  {
+			$_SESSION[User::SESSION] = $user->getValues();
 
-    $sql = new Sql();
-  
-    $results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
-      "iduser"=>$this->getiduser(),
-      "desperson"=>$this->getdesperson(),
-      "deslogin"=>$this->getdeslogin(),
-      "despassword"=>$this->getdespassword(),
-      "desemail"=>$this->getdesemail(),
-      "nrphone"=>$this->getnrphone(),
-      "inadmin"=>$this->getinadmin()
-    ));
+			return $user;
 
-    $this->setData($results[0]);
+		} else {
+			throw new \Exception("Usuário inexistente ou senha inválida.");
+		}
 
-  }
+	}
 
-  public function delete(){
+	public static function verifyLogin($inadmin = true)
+	{
 
-    $sql = new Sql();
+		if (!User::checkLogin($inadmin)) {
 
-    $sql->query("CALL sp_users_delete(:iduser)", array(
-      ":iduser"=>$this->getiduser()
-    ));
+			if ($inadmin) {
+				header("Location: /admin/login");
+			} else {
+				header("Location: /login");
+			}
+			exit;
 
-  }
+		}
 
-  public static function getForgot($email, $inadmin = true)
+	}
+
+	public static function logout()
+	{
+
+		$_SESSION[User::SESSION] = NULL;
+
+	}
+
+	public static function listAll()
+	{
+
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson");
+
+	}
+
+	public function save()
+	{
+
+		$sql = new Sql();
+
+		$results = $sql->select("CALL sp_users_save(:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+			":desperson"=>utf8_decode($this->getdesperson()),
+			":deslogin"=>$this->getdeslogin(),
+			":despassword"=>User::getPasswordHash($this->getdespassword()),
+			":desemail"=>$this->getdesemail(),
+			":nrphone"=>$this->getnrphone(),
+			":inadmin"=>$this->getinadmin()
+		));
+
+		$this->setData($results[0]);
+
+	}
+
+	public function get($iduser)
+	{
+
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.iduser = :iduser", array(
+			":iduser"=>$iduser
+		));
+
+		$data = $results[0];
+
+		$data['desperson'] = utf8_encode($data['desperson']);
+
+
+		$this->setData($data);
+
+	}
+
+	public function update()
+	{
+
+		$sql = new Sql();
+
+		$results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+			":iduser"=>$this->getiduser(),
+			":desperson"=>utf8_decode($this->getdesperson()),
+			":deslogin"=>$this->getdeslogin(),
+			":despassword"=>User::getPasswordHash($this->getdespassword()),
+			":desemail"=>$this->getdesemail(),
+			":nrphone"=>$this->getnrphone(),
+			":inadmin"=>$this->getinadmin()
+		));
+
+		$this->setData($results[0]);		
+
+	}
+
+	public function delete()
+	{
+
+		$sql = new Sql();
+
+		$sql->query("CALL sp_users_delete(:iduser)", array(
+			":iduser"=>$this->getiduser()
+		));
+
+	}
+
+	public static function getForgot($email, $inadmin = true)
 	{
 
 		$sql = new Sql();
@@ -193,15 +243,15 @@ class User extends Model {
 
 				if ($inadmin === true) {
 
-					$link = "http://project.com.br/admin/forgot/reset?code=$code";
+					$link = "http://www.hcodecommerce.com.br/admin/forgot/reset?code=$code";
 
 				} else {
 
-					$link = "http://project.com.br/admin/forgot/reset?code=$code";
+					$link = "http://www.hcodecommerce.com.br/forgot/reset?code=$code";
 					
 				}				
 
-				$mailer = new Mailer($data['desemail'], $data['desperson'], "Redefinir senha da Fincorp Store", "forgot", array(
+				$mailer = new Mailer($data['desemail'], $data['desperson'], "Redefinir senha da Hcode Store", "forgot", array(
 					"name"=>$data['desperson'],
 					"link"=>$link
 				));				
