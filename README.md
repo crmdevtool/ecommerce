@@ -22,3 +22,4 @@ Alterar o arquivo no diretório: [/vendor/fincorp/php-classes/src/DB/Sql.php](ht
 ![Screenshot](/Screenshot/Screenshot.PNG)
 ![Screenshot](/Screenshot/Screenshot2.PNG)
 ![Screenshot](/Screenshot/Screenshot3.PNG)
+![Screenshot](/Screenshot/Screenshot4.PNG)
