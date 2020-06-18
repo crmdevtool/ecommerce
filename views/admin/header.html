@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
+  <title>Hcode Store | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -22,7 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
-  <link rel="stylesheet" href="/res/admin/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="/res/admin/dist/css/skins/_all-skins.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +51,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -176,7 +176,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="/res/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Adimael S.</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -184,8 +184,8 @@ desired effect
                 <img src="/res/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  Adimael S. - Web Developer
+                  <small>Member since Nov. 2015</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -234,7 +234,7 @@ desired effect
           <img src="/res/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>Adimael S.</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -256,9 +256,10 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
+        <li><a href="/admin"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
         <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
-        <li><a href="/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a></li>
-        <li><a href="/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a></li>
+        <li><a href="/admin/categories"><i class="fa fa-th-large"></i> <span>Categorias</span></a></li>
+        <li><a href="/admin/products"><i class="fa fa-shopping-bag"></i> <span>Produtos</span></a></li>
         <li><a href="/admin/orders"><i class="fa fa-shopping-cart"></i> <span>Pedidos</span></a></li>
 
         

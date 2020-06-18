@@ -307,21 +307,21 @@
  */
 /* skin-black navbar */
 .skin-black .main-header {
-  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 1px 1px #232323;
+  box-shadow: 0px 1px 1px #232323;
 }
 .skin-black .main-header .navbar-toggle {
-  color: #333;
+  color: #232323;
 }
 .skin-black .main-header .navbar-brand {
   color: #333;
   border-right: 1px solid #eee;
 }
 .skin-black .main-header .navbar {
-  background-color: #ffffff;
+  background-color: #12141b;
 }
 .skin-black .main-header .navbar .nav > li > a {
-  color: #333333;
+  color: #fff;
 }
 .skin-black .main-header .navbar .nav > li > a:hover,
 .skin-black .main-header .navbar .nav > li > a:active,
@@ -330,7 +330,7 @@
 .skin-black .main-header .navbar .nav .open > a:hover,
 .skin-black .main-header .navbar .nav .open > a:focus,
 .skin-black .main-header .navbar .nav > .active > a {
-  background: #ffffff;
+  background: #232323;
   color: #999999;
 }
 .skin-black .main-header .navbar .sidebar-toggle {
@@ -338,28 +338,28 @@
 }
 .skin-black .main-header .navbar .sidebar-toggle:hover {
   color: #999999;
-  background: #ffffff;
+  background: #12141b;
 }
 .skin-black .main-header .navbar > .sidebar-toggle {
   color: #333;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #333;
 }
 .skin-black .main-header .navbar .navbar-nav > li > a {
-  border-right: 1px solid #eee;
+  border-right: 1px solid rgb(32, 32, 32);
 }
 .skin-black .main-header .navbar .navbar-custom-menu .navbar-nav > li > a,
 .skin-black .main-header .navbar .navbar-right > li > a {
-  border-left: 1px solid #eee;
+  border-left: 1px solid #333;
   border-right-width: 0;
 }
 .skin-black .main-header > .logo {
-  background-color: #ffffff;
+  background-color: #12141b;
   color: #333333;
   border-bottom: 0 solid transparent;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #333;
 }
 .skin-black .main-header > .logo:hover {
-  background-color: #fcfcfc;
+  background-color: #232323;
 }
 @media (max-width: 767px) {
   .skin-black .main-header > .logo {
@@ -373,7 +373,7 @@
   }
 }
 .skin-black .main-header li.user-header {
-  background-color: #222;
+  background-color: rgb(13, 72, 161);
 }
 .skin-black .content-header {
   background: transparent;
@@ -382,7 +382,7 @@
 .skin-black .wrapper,
 .skin-black .main-sidebar,
 .skin-black .left-side {
-  background-color: #222d32;
+  background-color: #12141b;
 }
 .skin-black .user-panel > .info,
 .skin-black .user-panel > .info > a {

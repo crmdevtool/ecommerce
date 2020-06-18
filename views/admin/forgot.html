@@ -53,7 +53,7 @@
     <a href="/admin/login">Or sign in as a different user</a>
   </div>
   <div class="lockscreen-footer text-center">
-    Copyright &copy; 2014-2016 <b><a href="http://almsaeedstudio.com" class="text-black">Almsaeed Studio</a></b><br>
+    Copyright &copy; 2020-2021 <b><a href="http://almsaeedstudio.com" class="text-black">Almsaeed Studio</a></b><br>
     All rights reserved
   </div>
 </div>
