@@ -61,7 +61,7 @@
                                         <p id="billing_district_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row-wide address-field validate-required">
 											<label class="" for="billing_district">Bairro <abbr title="required" class="required">*</abbr>
 											</label>
-											<input type="text" value="<?php echo htmlspecialchars( $address["desdistrict"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" placeholder="Cidade" id="billing_district" name="desdistrict" class="input-text ">
+											<input type="text" value="<?php echo htmlspecialchars( $address["desdistrict"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" placeholder="Bairro" id="billing_district" name="desdistrict" class="input-text ">
 										</p>
 										<p id="billing_city_field" class="form-row form-row-wide address-field validate-required" data-o_class="form-row form-row-wide address-field validate-required">
 											<label class="" for="billing_city">Cidade <abbr title="required" class="required">*</abbr>
@@ -120,6 +120,7 @@
 													</tr>
 												</tfoot>
 											</table>
+											<h3 id="order_review_heading" style="margin-top:30px;">Formas de pagamento</h3>
 											<p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state">
 												<input type="radio" id="method-pagseguro" name="payment-method" placeholder="País" value="1" style="float:left; margin: 30px;">
 												<label class="" for="method-pagseguro"><img style="height:64px;" src="/res/page/img/logo-pagseguro.png"></label>
@@ -127,6 +128,10 @@
 											<p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state">
 												<input type="radio" checked="checked" id="method-paypal" name="payment-method" placeholder="País" value="2" style="float:left; margin: 30px;">
 												<label class="" for="method-paypal"><img style="height:64px;" src="/res/page/img/logo-paypal.png"></label>
+											</p>
+											<p id="billing_state_field" class="form-row form-row-first address-field validate-state" data-o_class="form-row form-row-first address-field validate-state">
+												<input type="radio" id="method-boleto" name="payment-method" placeholder="País" value="3" style="float:left; margin: 30px;">
+												<label class="" for="method-boleto"><img style="height:64px;" src="/res/page/img/logo-boleto.png"></label>
 											</p>
 											<div id="payment">
 												<div class="form-row place-order">
